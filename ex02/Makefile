@@ -6,7 +6,7 @@
 #    By: iamongeo <iamongeo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 20:27:40 by iamongeo          #+#    #+#              #
-#    Updated: 2023/03/16 20:27:41 by iamongeo         ###   ########.fr        #
+#    Updated: 2023/03/12 13:56:17 by iamongeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,13 +20,15 @@ CPPSTD	=	-std=c++98
 
 CPPFLGS	=	$(CPPSTD) -Wall -Werror -Wextra
 
+CPP	=	c++
+
 NAME	=	Accounting
 
 .c.o:
-	c++ $(CPPFLGS) -o $< -c $@
+	$(CPP) $(CPPFLGS) -o $< -c $@
 
 $(NAME):	$(OBJS)
-	c++ $(CPPFLGS) -o $(NAME) $(OBJS)
+	$(CPP) $(CPPFLGS) -o $(NAME) $(OBJS)
 
 all:	$(NAME)
 

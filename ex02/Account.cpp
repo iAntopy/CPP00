@@ -6,7 +6,7 @@
 /*   By: iamongeo <iamongeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 18:43:47 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/03/16 20:45:47 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/12 13:50:50 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <sstream>
 #include <string>
 #include <ctime>
+#include <iomanip>
 #include "Account.hpp"
 
 int	Account::_nbAccounts = 0;
