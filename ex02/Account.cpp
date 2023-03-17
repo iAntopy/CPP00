@@ -6,7 +6,7 @@
 /*   By: iamongeo <iamongeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 18:43:47 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/03/12 13:50:50 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/17 17:34:14 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	gen_timestamp(std::string& ret)
 {
 	std::stringstream	timestamp;
 	std::time_t			t = std::time(nullptr);
-	//std::tm*			tm = std::localtime(t);
 	timestamp << std::put_time(std::localtime(&t), "%Y%m%d_%H%M%S");
 	ret = timestamp.str();
 }
@@ -183,11 +182,11 @@ Account::Account(int initial_deposit) : _amount(initial_deposit),
 Account::Account(void) : _amount(0)
 {
 	this->_accountIndex = this->_nbAccounts++;    
+	log_account_creation(this->_accountIndex, this->_amount);
 }
 
-Account::~Account(void)	{
-//	std::cout << "Account " << this->_accountIndex << " destroyed" << std::endl;
-
+Account::~Account(void)
+{
 	this->_nbAccounts--;
 	log_account_destruction(this->_accountIndex, this->_amount);
 }
@@ -245,7 +244,6 @@ bool	Account::makeWithdrawal(int withdrawal)
 	}
 	else
 	{
-		//int index, int p_amount, int witAmount, int nbWits)
 		this->_amount -= withdrawal;
 		this->_totalAmount -= withdrawal;
 		this->_totalNbWithdrawals++;
@@ -254,18 +252,3 @@ bool	Account::makeWithdrawal(int withdrawal)
 		return (true);
 	}
 }
-/*
-int	main(void)
-{
-	Account	acc(42);
-	acc.displayAccountsInfos();
-	acc.displayStatus();
-
-	acc.makeDeposit(999);
-	acc.makeWithdrawal(42);
-	
-	acc.displayAccountsInfos();
-	acc.displayStatus();
-	return (0);
-}
-*/
